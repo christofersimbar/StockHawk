@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#689F38</color>
+    <color name="colorPrimaryDark">#33691E</color>
+    <color name="colorAccent">#F57C00</color>
+
+    <color name="material_blue_500">#1976D2</color>
+    <color name="material_red_700">#d32f2f</color>
+    <color name="material_green_700">#388E3C</color>
+
+    <!-- the activated state color -->
+    <color name="activated">#E0E0E0</color>
+</resources>

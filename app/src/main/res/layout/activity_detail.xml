@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.udacity.stockhawk.ui.DetailActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <android.support.v7.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin"
+            app:columnCount="5">
+
+            <TextView
+                android:id="@+id/detail_symbol"
+                android:layout_width="0dp"
+                android:fontFamily="sans-serif-bold"
+                android:gravity="start"
+                android:textSize="32sp"
+                app:layout_columnSpan="5"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                tools:text="Alphabet Inc." />
+
+            <TextView
+                android:id="@+id/detail_price"
+                android:layout_width="0dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center_vertical|start"
+                android:textSize="24sp"
+                app:layout_columnWeight="2"
+                app:layout_rowWeight="1"
+                tools:text="$830" />
+
+            <TextView
+                android:id="@+id/detail_stock_exchange"
+                android:layout_width="0dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center_vertical|end"
+                android:textSize="16sp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                tools:text="NMS" />
+
+            <TextView
+                android:id="@+id/detail_absolute_change"
+                android:layout_width="0dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center_vertical|end"
+                android:textSize="16sp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                tools:text="+$0.78" />
+
+
+            <TextView
+                android:id="@+id/detail_percentage_change"
+                android:layout_width="0dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center_vertical|end"
+                android:textSize="16sp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                tools:text="+55.00%" />
+
+
+        </android.support.v7.widget.GridLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/detail_chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/activity_horizontal_margin" />
+</LinearLayout>
