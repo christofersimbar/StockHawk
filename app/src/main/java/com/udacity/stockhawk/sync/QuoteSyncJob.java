@@ -11,6 +11,7 @@ import android.net.NetworkInfo;
 import android.os.Handler;
 import android.widget.Toast;
 
+import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.data.Contract;
 import com.udacity.stockhawk.data.PrefUtils;
 
@@ -30,6 +31,8 @@ import yahoofinance.histquotes.HistoricalQuote;
 import yahoofinance.histquotes.Interval;
 import yahoofinance.quotes.stock.StockQuote;
 
+import static yahoofinance.Utils.getString;
+
 public final class QuoteSyncJob {
     private static final int ONE_OFF_ID = 2;
     public static final String ACTION_DATA_UPDATED = "com.udacity.stockhawk.ACTION_DATA_UPDATED";
@@ -38,11 +41,11 @@ public final class QuoteSyncJob {
     private static final int PERIODIC_ID = 1;
     private static final int YEARS_OF_HISTORY = 2;
 
-    static class DisplayToast implements Runnable{
+    private static class DisplayToast implements Runnable{
         String mText;
         Context mContext;
 
-        public DisplayToast(Context context,String text){
+        private DisplayToast(Context context,String text){
             mText = text;
             mContext = context;
         }
@@ -85,7 +88,7 @@ public final class QuoteSyncJob {
 
                 //test if stock symbol exists
                 if (stock.getName()==null) {
-                    handler.post(new DisplayToast(context,"Stock " + symbol + " doesn't exists!"));
+                    handler.post(new DisplayToast(context,context.getString(R.string.error_invalid_stock ,symbol)));
 
                     //remove symbol from preference list
                     PrefUtils.removeStock(context,symbol);
