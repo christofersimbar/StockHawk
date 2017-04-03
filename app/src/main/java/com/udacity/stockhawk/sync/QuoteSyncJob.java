@@ -41,16 +41,16 @@ public final class QuoteSyncJob {
     private static final int PERIODIC_ID = 1;
     private static final int YEARS_OF_HISTORY = 2;
 
-    private static class DisplayToast implements Runnable{
+    private static class DisplayToast implements Runnable {
         String mText;
         Context mContext;
 
-        private DisplayToast(Context context,String text){
+        private DisplayToast(Context context, String text) {
             mText = text;
             mContext = context;
         }
 
-        public void run(){
+        public void run() {
             Toast.makeText(mContext, mText, Toast.LENGTH_SHORT).show();
         }
     }
@@ -87,11 +87,11 @@ public final class QuoteSyncJob {
                 Stock stock = quotes.get(symbol);
 
                 //test if stock symbol exists
-                if (stock.getName()==null) {
-                    handler.post(new DisplayToast(context,context.getString(R.string.error_invalid_stock ,symbol)));
+                if ((null == stock) || (stock.getName() == null)) {
+                    handler.post(new DisplayToast(context, context.getString(R.string.error_invalid_stock, symbol)));
 
                     //remove symbol from preference list
-                    PrefUtils.removeStock(context,symbol);
+                    PrefUtils.removeStock(context, symbol);
 
                     //go to next symbol
                     continue;
